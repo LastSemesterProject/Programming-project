@@ -1,0 +1,169 @@
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Untitled Document</title> 
+<script language="JavaScript"> 
+function checkname(){ 
+var div = document.getElementById("div1"); 
+div.innerHTML = ""; 
+var name1 = document.form1.text1.value; 
+if (name1 == "") { 
+div.innerHTML = "Username can not be empty！"; 
+document.form1.text1.focus(); 
+return false; 
+} 
+if (name1.length < 4 || name1.length > 16) { 
+div.innerHTML = "The lengh of username must be 4-16 characters!"; 
+document.form1.text1.select(); 
+return false; 
+} 
+var charname1 = name1.toLowerCase(); 
+for (var i = 0; i < name1.length; i++) { 
+var charname = charname1.charAt(i); 
+if (!(charname >= 0 && charname <= 9) && (!(charname >= 'a' && charname <= 'z')) && (charname != '_')) { 
+div.innerHTML = "The name contains illegal letters and can only contain letters, numbers, and underscores"; 
+document.form1.text1.select(); 
+return false; 
+} 
+} 
+return true;
+
+}
+
+function checkpassword(){ 
+var div = document.getElementById("div2"); 
+div.innerHTML = ""; 
+var password = document.form1.text2.value; 
+if (password == "") { 
+div.innerHTML = "Password can not be empty！"; 
+document.form1.text2.focus(); 
+return false; 
+} 
+if (password.length < 4 || password.length > 12) { 
+div.innerHTML = "The legth of password must be 4-12 characters"; 
+document.form1.text2.select(); 
+return false; 
+} 
+return true; 
+}
+
+function checkrepassword(){ 
+var div = document.getElementById("div3"); 
+div.innerHTML = ""; 
+var password = document.form1.text2.value; 
+var repass = document.form1.text3.value; 
+if (repass == "") { 
+div.innerHTML = "Password can not be empty！"; 
+document.form1.text3.focus(); 
+return false; 
+} 
+if (password != repass) { 
+div.innerHTML = " The password and confirm password is not same"; 
+document.form1.text3.select(); 
+return false; 
+} 
+return true; 
+}
+
+function checkEmail(){ 
+var div = document.getElementById("div4"); 
+div.innerHTML = ""; 
+var email = document.form1.text5.value; 
+var sw = email.indexOf("@", 0); 
+var sw1 = email.indexOf(".", 0); 
+var tt = sw1 - sw; 
+if (email.length == 0) { 
+div.innerHTML = "Email Address can not be empty！"; 
+document.form1.text5.focus(); 
+return false; 
+} 
+if (email.indexOf("@", 0) == -1) { 
+div.innerHTML = "The email format is incorrect and must contain an @ sign！"; 
+document.form1.text5.select(); 
+return false; 
+} 
+if (email.indexOf(".", 0) == -1) { 
+div.innerHTML = "The email format is incorrect and must contain an . sign!"; 
+document.form1.text5.select(); 
+return false; 
+} 
+if (tt == 1) { 
+div.innerHTML = "The e-mail format is incorrect and @ sign can not be next to . sign！"; 
+document.form1.text5.select(); 
+return false; 
+} 
+if (sw > sw1) { 
+div.innerHTML = "The e-mail format is incorrect and the @ sign must be before . sign!"; 
+document.form1.text5.select(); 
+return false; 
+} 
+else { 
+return true; 
+}
+
+return ture; 
+}
+
+function check(){ 
+if (checkname() && checkpassword() && checkrepassword() && checkEmail()) { 
+return true; 
+} 
+else { 
+return false; 
+} 
+} 
+</script> 
+</head> 
+<body> 
+<form name="form1" method="post" action="LoginPage.html" onsubmit="return check()"> 
+<table> 
+<tr> 
+<td> 
+Username： 
+</td> 
+<td> 
+<input id="text1" type="text" name="text1" onblur="check()"> 
+<div id="div1" style="display:inline"> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td> 
+Password： 
+</td> 
+<td> 
+<input id="text2" type="password" name="text2" onblur="check()"> 
+<div id="div2" style="display:inline"> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td> 
+Confirm Password： 
+</td> 
+<td> 
+<input id="text3" type="password" name="text3" onblur="check()"> 
+<div id="div3" style="display:inline"> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td> 
+Email Address： 
+</td> 
+<td> 
+<input id="text4" type="text" name="text4" onblur="check()"> 
+<div id="div4" style="display:inline"> 
+</div> 
+</td> 
+</tr> 
+<tr align="center"> 
+<td align="center"> 
+<input type="submit" value="Submit" name="tect6"><input type="reset" value="Reset" name="text7"> 
+</td> 
+</tr> 
+</table> 
+</form> 
+</body> 
+</html>
+
