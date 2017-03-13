@@ -1,0 +1,122 @@
+
+/* overall styling */
+  body {margin:0;}
+  body {font-family: "Lato", sans-serif};
+  background-color {black;}
+/* Search function positioning and style */
+  .box{
+        margin: 250px auto;
+        width: 500px;
+        height: 10px;
+      }
+
+  .container-1{
+        width: 300px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: static;;
+      }
+
+  .container-1 input#search{
+        width: 500px;
+        height: 50px;
+        background: white;
+        border: none;
+        font-size: 15pt;
+        float: left;
+        color: #63717f;
+        padding-left: 45px;
+
+        border-radius: 15px;
+  }
+
+
+
+/* overall background color */
+  body{
+          background: #343d46;
+      }
+/* Navigation bar styling */
+  ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          background-color: #333;
+          position: fixed;
+          top: 0;
+          width: 100%;
+      }
+
+  li {
+          float: left;
+      }
+
+
+  li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 25px;
+          text-decoration: none;
+       }
+
+  li a:hover:not(.active) {
+          background-color: #47c4d1;
+        }
+
+    .floatRightside{
+        float:right;
+    }
+/* Footer Design */
+
+  .footer{
+        display: block;
+        padding:14px 25px;
+  }
+
+
+
+  .footerDesign {
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        border:none;
+        position:relative;
+
+
+    }
+
+    .footerLinks{
+
+          color: white;
+          display: block;
+          margin:0;
+          padding: 20px 16px;
+
+          text-align: center;
+          position:relative;
+
+
+    }
+
+
+
+
+/* Testing different nav functions
+  .websiteName{
+
+          display: block;
+          font-size: 20px;
+          color: hotpink;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+
+  .websiteName{
+          hover:not(.active)
+          background-color: black;
+        }
+Testing different nav functions */
