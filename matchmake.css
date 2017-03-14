@@ -3,6 +3,7 @@
   body {margin:0;}
   body {font-family: "Lato", sans-serif};
   background-color {black;}
+
 /* Search function positioning and style */
   .box{
         margin: 250px auto;
@@ -34,7 +35,7 @@
 
 /* overall background color */
   body{
-          background: #343d46;
+          background: #333;
       }
 /* Navigation bar styling */
   ul {
@@ -45,6 +46,7 @@
           position: fixed;
           top: 0;
           width: 100%;
+          border-bottom: solid #47c4d1 5px;
       }
 
   li {
@@ -72,18 +74,27 @@
   .footer{
         display: block;
         padding:14px 25px;
+        margin: 0;
+        padding:0;
   }
 
 
 
   .footerDesign {
+
+
+        color: white;
         background-color: #333;
-        width: 100%;
         text-align: center;
-        margin: 0;
-        padding: 0;
-        border:none;
-        position:relative;
+        bottom: 0;
+        top: 0;
+        padding: 0px 25px;
+        clear: both;
+        border-top: solid #47c4d1 5px;
+        display: block;
+
+
+
 
 
     }
@@ -93,18 +104,60 @@
           color: white;
           display: block;
           margin:0;
-          padding: 20px 16px;
-
+          padding: 1px 25px;
+          list-style-type: none;
           text-align: center;
-          position:relative;
+          position:relative;;
 
 
     }
 
+      li.foots {
+          display: block;
 
+          width: 90px;
+          height: 25px;
+          float: left;
+          margin-left: 400px;
+      }
+/* GALLERY DESIGNS */
+    div.gallery {
+          margin: 5px;
+          border: 10px solid #ccc;
+
+          float:left;
+          width: 300px;
+          padding: 75px;
+    }
+
+    div.gallery:hover {
+          border: 10px solid #47c4d1;
+    }
+
+    div.gallery img {
+          width: 100%;
+          height: auto;
+
+    }
+
+    div.desc {
+          padding: 1px ;
+          text-align: center;
+    }
+
+/* Testing different FOOTER styling
+
+    .copy-right ul li {
+          list-style-type: none;
+          display: inline-block;
+          margin: 0 0px;
+          border-left: 1px solid #444343;
+          padding: 0 20px;
+*/
 
 
 /* Testing different nav functions
+
   .websiteName{
 
           display: block;
