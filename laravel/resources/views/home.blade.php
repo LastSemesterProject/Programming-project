@@ -14,7 +14,7 @@
         <li><a href="contact.html">Contact</a></li>
 
         <div class="floatRightside";>
-            <li><a href="logIn.html">Log In</a></li>
+            <li><a href="{{Auth::check() ? url('auth/logout') : url('auth/login')}}"> {{Auth::check() ? 'Logout' : 'Login'}}</a></li>
             <li><a href="signUp.html">Sign Up</a></li>
         </div>
 
