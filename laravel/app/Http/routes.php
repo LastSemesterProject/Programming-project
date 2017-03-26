@@ -35,7 +35,7 @@ Route::post('auth/login', function () {
 Route::get('auth/logout', function () {
     Auth::logout();
 
-    return Redirect::away('/');
+    return Redirect::away('login');
 });
 
 
