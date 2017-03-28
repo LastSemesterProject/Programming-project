@@ -12,50 +12,27 @@
 */
 use App\User;
 use Illuminate\Support\Facades\Auth;
+
 //Route::get('/', function () {
 //    return view('welcome');
 //});
 
 Route::get('/', function () {
-    return view('home', array('title' => 'Welcome','description' => '','page' => 'home'));
+    return view('home', array('title' => 'Welcome', 'description' => '', 'page' => 'home'));
 });
+
 
 
 // Authentication routes...
-Route::get('auth/login', function () {
-    return view('login', array('title' => 'Welcome', 'description' => '', 'page' => 'home'));
-});
-Route::post('auth/login', function () {
-    if (Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
-        return view('home', array('title' => 'Welcome', 'description' => '', 'page' => 'home'));
-    } else {
-        return view('login', array('title' => 'Welcome', 'description' => '', 'page' => 'home'));
-    }
-});
-Route::get('auth/logout', function () {
-    Auth::logout();
-
-    return Redirect::away('login');
-});
-
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@logout');
 
 // Registration routes...
-Route::post('/register', function () {
-    if (Request::isMethod('post')) {
-        User::create([
-            'name' => Request::get('name'),
-            'email' => Request::get('email'),
-            'password' => bcrypt(Request::get('password')),
-        ]);
-    }
-
-    return Redirect::away('auth/login');
-}
-
-);
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-Route::get('/checkout', [
-    'middleware' => 'auth',
-    'uses' => 'Front@checkout'
+Route::controllers([
+    'password' => 'Auth\PasswordController',
 ]);

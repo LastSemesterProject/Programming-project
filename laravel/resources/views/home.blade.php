@@ -15,7 +15,7 @@
 
         <div class="floatRightside";>
             <li><a href="{{Auth::check() ? url('auth/logout') : url('auth/login')}}"> {{Auth::check() ? 'Logout' : 'Login'}}</a></li>
-            <li><a href="signUp.html">Sign Up</a></li>
+            <li><a href="{{url('auth/register')}}">Sign Up</a></li>
         </div>
 
     </ul>
