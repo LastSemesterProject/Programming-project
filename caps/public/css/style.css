@@ -1,0 +1,11 @@
+.background-container{
+    margin-top: -20px;
+    background: url("../img/chair.jpg");
+    width: 100%;
+    position: absolute;
+}
+
+.paddingtop
+{
+    padding-top: 80px;
+}
