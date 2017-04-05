@@ -39,15 +39,16 @@
       }
 /* Navigation bar styling */
   ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          background-color: #333;
-          position: fixed;
-          top: 0;
-          width: 100%;
-          border-bottom: solid #47c4d1 5px;
-      }
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      position: relative;
+      height:4em;
+      top: 0;
+      width: 100%;
+      border-bottom: solid #47c4d1 5px;
+  }
 
   li {
           float: left;
@@ -82,7 +83,7 @@
 
   .footerDesign {
 
-
+        height: 4em;
         color: white;
         background-color: #333;
         text-align: center;
@@ -92,9 +93,6 @@
         clear: both;
         border-top: solid #47c4d1 5px;
         display: block;
-
-
-
 
 
     }

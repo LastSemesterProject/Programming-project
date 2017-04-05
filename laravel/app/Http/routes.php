@@ -33,6 +33,13 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
+Route::get('dashboard', 'Controller@getDashboard')->middleware('auth');
+
+
+
+Route::get('/submit-form',['as' => 'submit-form', 'uses' => 'ProductController@addItem']);
+
+
 Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);

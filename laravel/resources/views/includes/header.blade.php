@@ -9,3 +9,5 @@
 
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('css/home.css')}}" rel="stylesheet">
+<link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
+<script src="{{asset('js/dashboard.js')}}"></script>

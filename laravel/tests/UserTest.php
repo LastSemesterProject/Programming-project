@@ -29,13 +29,15 @@ class UserTest extends TestCase
     public function testRegisterExistingAccount() {
         $this->visit('auth/register')
             ->type('Me', 'name')
-            ->type('test@test.com', 'email')
+            ->type('123@123.com', 'email')
             ->type('testtest', 'password')
             ->type('testtest', 'password_confirmation')
             ->press('Register')
             ->seePageIs('auth/register')
             ->see('The email has already been taken');
     }
+
+
 
     public function testRegisterWithShortPassword() {
 
