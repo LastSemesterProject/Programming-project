@@ -34,6 +34,44 @@ class ProductTest extends TestCase
     }
 
 
+    public function testFindNoMatchingProduct() {
+        $user = App\User::create(array('name' => 'john', 'email' => 'John@john.com', 'password' => "123"));
+        $this->be($user);
+        $this->visit('dashboard')
+            ->see('Buy an Item')
+            ->type('123','title')
+            ->press('Search')
+            ->see('0 products found');
+    }
+
+    public function testFindMathchingProduct() {
+        $user = App\User::create(array('name' => 'john', 'email' => 'John@john.com', 'password' => "123"));
+        $this->be($user);
+        $this->visit('dashboard')
+            ->see('Buy an Item')
+            ->type('chair','title')
+            ->select('sofa', 'category')
+            ->select('steel', 'material')
+            ->select('black', 'colour')
+            ->select('outdoor','suitability')
+            ->select('new', 'condition')
+            ->type('1', 'price')
+            ->type('10','price2')
+            ->press('Search')
+            ->see('2 products found');
+    }
+
+    public function testSimilarProductShown() {
+        $user = App\User::create(array('name' => 'john', 'email' => 'John@john.com', 'password' => "123"));
+        $this->be($user);
+        $this->visit('dashboard')
+            ->see('Buy an Item')
+            ->type('chair','title')
+            ->press('Search')
+            ->see('Similar Items that you may be interested in');
+    }
+
+
 
 
 }
