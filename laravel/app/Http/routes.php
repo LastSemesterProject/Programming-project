@@ -40,6 +40,10 @@ Route::get('dashboard', 'Controller@getDashboard')->middleware('auth');
 Route::get('/submit-form',['as' => 'submit-form', 'uses' => 'ProductController@addItem']);
 
 
+Route::get('/find-item',['as' => 'find-item', 'uses' => 'ProductController@findItem']);
+
+
+
 Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
