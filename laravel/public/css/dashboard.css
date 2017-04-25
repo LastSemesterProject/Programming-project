@@ -41,12 +41,30 @@ div.tab button.active {
         text-align: center;
     }
 
-
+#sell-item, #buy-item{
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
 form {
     margin-bottom: 3em;
+
 }
     form p {
         margin:0;
         font-weight: 600;
     }
+    
+
+    
+.form-group p {
+    display: inline-block;
+    width:15%;
+}
+.form-group input[type="text"] {
+    width: 60%;
+}
+
+.form-container {
+    width: 70%;
+    margin: 0 auto;
+}

@@ -5,8 +5,10 @@
 
     @include('includes.header')
 </head>
-
+<body>
 @yield('content')
+
+</body>
 
 
 @include('includes.footer')

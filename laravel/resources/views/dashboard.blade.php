@@ -10,68 +10,85 @@
                 <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tab3</button>
             </div>
 
-            <div id="sell-item" class="tabcontent">
+            <div id="sell-item" class="col-md-8 tabcontent">
                 <h3>Sell an item</h3>
 
                 <form action="{{route('submit-form')}}">
 
-                    <p>Title</p>
-                    <input type="text" name="title" value="">
+                    <div class="form-container">
 
-                    <p>Description</p>
-                    <input type="text" name="description" value="">
+                        <div class="form-group">
+                            <p>Title:</p>
+                            <input type="text" name="title" value="">
+                        </div>
 
-                    <p>Item</p>
+                        <div class="form-group">
+                            <p>Description:</p>
+                            <input type="text" name="description" value="">
+                        </div>
 
-                    <select name="category">
-                        <option value="chair">Chair</option>
-                        <option value="table">Table</option>
-                        <option value="sofa">Sofa</option>
-                        <option value="bed">Bed</option>
-                        <option value="shelves">Shelves</option>
+                        <div class="form-group">
+                            <p>Item:</p>
 
-                    </select>
+                            <select name="category">
+                                <option value="chair">Chair</option>
+                                <option value="table">Table</option>
+                                <option value="sofa">Sofa</option>
+                                <option value="bed">Bed</option>
+                                <option value="shelves">Shelves</option>
 
-                    <p>Material</p>
-                    <select name="material">
-                        <option value="wood">Wood</option>
-                        <option value="marble">Marble</option>
-                        <option value="steel">Steel</option>
-                        <option value="leather">Leather</option>
-                        <option value="glass">Glass</option>
-                    </select>
+                            </select>
+                        </div>
 
-                    <p>Colour</p>
-                    <select name="colour">
-                        <option value="black">Black</option>
-                        <option value="black">White</option>
-                        <option value="black">Red</option>
-                        <option value="black">Blue</option>
-                        <option value="black">Green</option>
-                        <option value="black">Brown</option>
-                    </select>
+                        <div class="form-group">
+                            <p>Material:</p>
+                            <select name="material">
+                                <option value="wood">Wood</option>
+                                <option value="marble">Marble</option>
+                                <option value="steel">Steel</option>
+                                <option value="leather">Leather</option>
+                                <option value="glass">Glass</option>
+                            </select>
+                        </div>
 
-                    <p>Suitability </p>
-                    <input type="radio" name="suitability" value="indoor" checked>Indoor<br>
-                    <input type="radio" name="suitability" value="outdoor">Outdoor
+                        <div class="form-group">
+                            <p>Colour:</p>
+                            <select name="colour">
+                                <option value="black">Black</option>
+                                <option value="black">White</option>
+                                <option value="black">Red</option>
+                                <option value="black">Blue</option>
+                                <option value="black">Green</option>
+                                <option value="black">Brown</option>
+                            </select>
+                        </div>
 
-                    <p>Condition </p>
-                    <input type="radio" name="condition" value="new" checked>New<br>
-                    <input type="radio" name="condition" value="used">Used
+                        <div class="form-group">
+                            <p>Suitability:</p>
+                            <input type="radio" name="suitability" value="indoor" checked>Indoor&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="suitability" value="outdoor">Outdoor
+                        </div>
+
+                        <div class="form-group">
+                            <p>Condition: </p>
+                            <input type="radio" name="condition" value="new" checked>New&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="condition" value="used">Used
+                        </div>
+                        <div class="form-group">
+                            <p>Price:</p>
+                            <input type="number" name="price" value="price"><br><br>
+                        </div>
+                        <?php
+                        if (Auth::check()) {
+                            $userId = Auth::id();
+                        }
+                        ?>
+                        <input type="hidden" name="seller_id" value="{{$userId}}">
 
 
-                    <p>Price</p>
-                    <input type="number" name="price" value="price"><br><br>
+                        <input class="btn btn-primary" type="submit" value="Submit">
 
-                    <?php
-                    if (Auth::check()) {
-                        $userId = Auth::id();
-                    }
-                    ?>
-                    <input type="hidden" name="seller_id" value="{{$userId}}">
-
-
-                    <input class="btn btn-primary" type="submit" value="Submit">
+                    </div>
                 </form>
 
 
@@ -79,75 +96,85 @@
 
             <div id="buy-item" class="tabcontent">
                 <h3>Buy an Item</h3>
+
                 <form action="{{route('find-item')}}">
 
-                    <p>Title</p>
-                    <input type="text" name="title" value="">
+                    <div class="form-container">
 
-                    {{--<p>Description</p>--}}
-                    {{--<input type="text" name="description" value="">--}}
+                        <div class="form-group">
+                            <p>Title:</p>
+                            <input type="text" name="title" value="">
+                        </div>
 
-                    <p>Item</p>
+                        {{--<p>Description</p>--}}
+                        {{--<input type="text" name="description" value="">--}}
+                        <div class="form-group">
+                            <p>Item:</p>
 
-                    <select name="category">
-                        <option value="chair">Chair</option>
-                        <option value="table">Table</option>
-                        <option value="sofa">Sofa</option>
-                        <option value="bed">Bed</option>
-                        <option value="shelves">Shelves</option>
+                            <select name="category">
+                                <option value="chair">Chair</option>
+                                <option value="table">Table</option>
+                                <option value="sofa">Sofa</option>
+                                <option value="bed">Bed</option>
+                                <option value="shelves">Shelves</option>
 
-                    </select>
-
-                    <p>Material</p>
-                    <select name="material">
-                        <option value="wood">Wood</option>
-                        <option value="marble">Marble</option>
-                        <option value="steel">Steel</option>
-                        <option value="leather">Leather</option>
-                        <option value="glass">Glass</option>
-                    </select>
-
-                    <p>Colour</p>
-                    <select name="colour">
-                        <option value="black">Black</option>
-                        <option value="black">White</option>
-                        <option value="black">Red</option>
-                        <option value="black">Blue</option>
-                        <option value="black">Green</option>
-                        <option value="black">Brown</option>
-                    </select>
-
-                    <p>Suitability </p>
-                    <input type="radio" name="suitability" value="indoor" checked>Indoor<br>
-                    <input type="radio" name="suitability" value="outdoor">Outdoor
-
-                    <p>Condition </p>
-                    <input type="radio" name="condition" value="new" checked>New<br>
-                    <input type="radio" name="condition" value="used">Used
+                            </select>
+                        </div>
 
 
-                    <p>Price</p>
-                    Between <input type="number" name="price" value="price"> and <input type="number" name="price2" value="price"><br><br>
+                        <div class="form-group">
+                            <p>Material:</p>
+                            <select name="material">
+                                <option value="wood">Wood</option>
+                                <option value="marble">Marble</option>
+                                <option value="steel">Steel</option>
+                                <option value="leather">Leather</option>
+                                <option value="glass">Glass</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p>Colour:</p>
+                            <select name="colour">
+                                <option value="black">Black</option>
+                                <option value="black">White</option>
+                                <option value="black">Red</option>
+                                <option value="black">Blue</option>
+                                <option value="black">Green</option>
+                                <option value="black">Brown</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p>Suitability: </p>
+                            <input type="radio" name="suitability" value="indoor" checked>Indoor&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="suitability" value="outdoor">Outdoor
+                        </div>
+                        <div class="form-group">
+                            <p>Condition: </p>
+                            <input type="radio" name="condition" value="new" checked>New&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="condition" value="used">Used
+                        </div>
+                        <div class="form-group">
+                            <p>Price:</p>
+                            Min  $ <input type="number" name="price" value="price"> -   $ <input
+                                    type="number" name="price2"
+                                    value="price"> Max<br><br>
+
+                        </div>
+                        <input type="hidden" name="seller_id" value="{{$userId}}">
+
+                        <?php
+                        if (Auth::check()) {
+                            $userId = Auth::id();
+                        }
+                        ?>
 
 
-                    <input type="hidden" name="seller_id" value="{{$userId}}">
+                        <input class="btn btn-primary" type="submit" value="Search">
 
-                    <?php
-                    if (Auth::check()) {
-                        $userId = Auth::id();
-                    }
-                    ?>
-
-
-                    <input class="btn btn-primary" type="submit" value="Search">
+                    </div>
                 </form>
             </div>
 
-            <div id="tab3" class="tabcontent">
-                <h3>Tab3</h3>
-
-                <p>Tab3</p>
-            </div>
 
 
         </div>
