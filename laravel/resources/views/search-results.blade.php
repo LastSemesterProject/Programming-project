@@ -11,7 +11,6 @@
 <h2>{{count($products)}} products found.</h2><br><br>
 
 <?php
-
 foreach ($products as $product) {?>
         <div class="product-tile">
         <strong><p>Product ID: {{$product->id}}</p></strong>
@@ -22,22 +21,23 @@ foreach ($products as $product) {?>
         <p>Material: {{$product->material}}</p>
         <p>Color: {{$product->colour}}</p>
         <p>Suitability: {{$product->suitability}}</p>
-        <p>Condition: {{$product->condition}}</p>
+        <p>Condition: {{$product->conditionn}}</p>
         <p>Price: {{$product->price}}</p>
+            <p>Relevance score: {{$product->rank}}</p>
         <br><br>
         </div>
 <?php
     }
         ?>
 
-<h2>Similar items that you may be interested in:</h2>
+{{--<h2>Similar items that you may be interested in:</h2>--}}
 
 
-<?php
+{{--<?php--}}
 
-\App\Http\Controllers\ProductController::similarItem();
+{{--\App\Http\Controllers\ProductController::similarItem();--}}
 
-?>
+{{--?>--}}
 
 
 

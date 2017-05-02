@@ -16,7 +16,8 @@ class ProductController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
-    public function addItem(Request $request) {
+    public function addItem(Request $request)
+    {
 //        $product = new Product;
 //        $product = Input::get('title');
 //        $product = Input::get('description');
@@ -39,7 +40,9 @@ class ProductController extends BaseController
     /**
      *
      */
-    public function findItem() {
+    public function findItem()
+    {
+
 
         $title = Input::get('title');
         $description = Input::get('description');
@@ -53,21 +56,28 @@ class ProductController extends BaseController
 
 
         $products = DB::table('products')
-//            ->select('id')
-            ->where('title', $title)
-            ->whereBetween('price',[$price, $price2])
-            ->where('category', $category)
-            ->where('material', $material)
-            ->where('suitability', $suitability)
-            ->where('colour', $colour)
-            ->where('condition', $condition)
+            ->select(DB::raw('
+
+                *,
+
+               (CASE WHEN "' . $category . '" = category THEN 2 ELSE 0 END)
+                + (CASE WHEN "' . $material . '" = material THEN 1 ELSE 0 END)
+                + (CASE WHEN "' . $suitability . '" = suitability THEN 1 ELSE 0 END)
+                + (CASE WHEN "' . $colour . '" = colour THEN 1 ELSE 0 END)
+                + (CASE WHEN '. $price .' = price THEN 1 ELSE 0 END)
+                + (CASE WHEN "' . $condition . '" = conditionn THEN 1 ELSE 0 END)
+                AS rank
+            '))
+//            ->where('category = '.$category.'')
+            ->orderBy('rank','desc')
             ->get();
 
-        return View('search-results',['products' => $products]);
+        return View('search-results', ['products' => $products]);
 
     }
 
-    public static function similarItem() {
+    public static function similarItem()
+    {
         $title = Input::get('title');
         $description = Input::get('description');
         $category = Input::get('category');
@@ -80,7 +90,7 @@ class ProductController extends BaseController
 
 
         $similarProducts = DB::table('products')
-//            ->select('id')
+            ->select('id')
             ->where('title', $title)
             ->orWhereBetween('price',[$price, $price2])
             ->orWhere('category', $category)
@@ -90,10 +100,13 @@ class ProductController extends BaseController
             ->orWhere('condition', $condition)
             ->get();
 
+
+
+
 //        return View('search-results',['similarProducts' => $similarProducts]);
 
-        foreach ($similarProducts as $product){
-        echo <<<HERE
+        foreach ($similarProducts as $product) {
+            echo <<<HERE
 
         <div class="product-tile">
         <strong><p>Product ID: {$product->id}</p></strong>
@@ -115,7 +128,6 @@ HERE;
         }
 
     }
-
 
 
 }
