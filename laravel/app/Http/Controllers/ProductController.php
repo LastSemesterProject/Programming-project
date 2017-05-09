@@ -30,8 +30,12 @@ class ProductController extends BaseController
 //
 //        return $product;
 
-        Product::create(Request::all());
-
+        $product = Product::create(Request::all());
+//        $imageName = $product->id . '.' .
+//            $request->file('image')->getClientOriginalExtension();
+//        $request->file('image')->move(
+//            base_path() . '/public/images/catalog/', $imageName
+//        );
         return 'Data saved';
 
     }

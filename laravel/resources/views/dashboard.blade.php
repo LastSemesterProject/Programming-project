@@ -7,7 +7,7 @@
             <div class="tab">
                 <button class="tablinks" onclick="openTab(event, 'sell-item')">Sell an item</button>
                 <button class="tablinks" onclick="openTab(event, 'buy-item')">Buy an item</button>
-                <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tab3</button>
+                <button class="tablinks" onclick="openTab(event, 'recent-search')">Recent Search Result</button>
             </div>
 
             <div id="sell-item" class="col-md-8 tabcontent">
@@ -179,7 +179,22 @@
                 </form>
             </div>
 
+            <div id="recent-search" class="col-md-8 tabcontent">
+<?php
+                $savedData = DB::table('users')
+                ->select('last_search')
+                        ->where('id', Auth::id())
+                        ->get();
+                var_dump($savedData);
 
+
+
+
+
+            ?>
+
+
+                </div>
 
         </div>
     </div>

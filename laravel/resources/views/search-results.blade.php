@@ -23,11 +23,19 @@ foreach ($products as $product) {?>
         <p>Suitability: {{$product->suitability}}</p>
         <p>Condition: {{$product->conditionn}}</p>
         <p>Price: {{$product->price}}</p>
+            <p>Pic: <img src="data:image/jpeg;base64,<?php base64_encode($product->pic) ?>" /></p>
             <p>Relevance score: {{$product->rank}}</p>
         <br><br>
         </div>
 <?php
     }
+
+        $savedData = DB::table('users')
+            ->where('id', Auth::id())
+            ->update(['last_search' => json_encode($products)]);
+
+
+
         ?>
 
 {{--<h2>Similar items that you may be interested in:</h2>--}}
