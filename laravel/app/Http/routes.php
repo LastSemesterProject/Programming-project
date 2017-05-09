@@ -47,3 +47,8 @@ Route::get('/find-item',['as' => 'find-item', 'uses' => 'ProductController@findI
 Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
