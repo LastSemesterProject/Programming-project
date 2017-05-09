@@ -78,6 +78,10 @@
                             <p>Price:</p>
                             <input type="number" name="price" value="price"><br><br>
                         </div>
+                        <div class="form-group">
+                            <p for="image">Image:</p>
+                            <input type="file" name="pic" accept="image/*">
+                        </div>
                         <?php
                         if (Auth::check()) {
                             $userId = Auth::id();
