@@ -5,8 +5,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'buy-item')">Profile</button>
                 <button class="tablinks" onclick="openTab(event, 'sell-item')">Sell an item</button>
-                <button class="tablinks" onclick="openTab(event, 'buy-item')">Buy an item</button>
                 <button class="tablinks" onclick="openTab(event, 'recent-search')">Recent Search Result</button>
             </div>
 
@@ -99,7 +99,15 @@
             </div>
 
             <div id="buy-item" class="tabcontent">
-                <h3>Buy an Item</h3>
+
+                <img style="display:block; margin: 2em auto" src="{{URL::asset('/img/profile.jpg')}}">
+                <h3>{{Auth::user()->name}}</h3>
+                <p style="text-align: center; margin-bottom: 5em;">{{Auth::user()->email}}</p>
+
+
+
+
+                <h3>Search Item</h3>
 
                 <form action="{{route('find-item')}}">
 
@@ -159,7 +167,7 @@
                         </div>
                         <div class="form-group">
                             <p>Price:</p>
-                            Min  $ <input type="number" name="price" value="price"> -   $ <input
+                            Min $ <input type="number" name="price" value="price"> - $ <input
                                     type="number" name="price2"
                                     value="price"> Max<br><br>
 
@@ -180,22 +188,39 @@
             </div>
 
             <div id="recent-search" class="col-md-8 tabcontent">
-<?php
-                $savedData = DB::table('users')
-                ->select('last_search')
-                        ->where('id', Auth::id())
-                        ->get();
-                var_dump($savedData);
 
+                <div class="recent-container">
+                    <?php
 
+                    $savedData = DB::table('users')
+                            ->select(DB::raw('*
+                                    '))->where('id', Auth::id())->get();
 
+                    foreach ($savedData as $data) {
+                    $decodedData = json_decode($data->last_search);
 
-
-            ?>
-
+                        foreach ($decodedData as $product) {?>
+                        <div class="product-tile">
+                            <strong><p>Product ID: {{$product->id}}</p></strong>
+                            <p>Seller ID: {{$product->seller_id}}</p>
+                            <p>Title: {{$product->title}}</p>
+                            <p>Description: {{$product->description}}</p>
+                            <p>Category: {{$product->category}}</p>
+                            <p>Material: {{$product->material}}</p>
+                            <p>Color: {{$product->colour}}</p>
+                            <p>Suitability: {{$product->suitability}}</p>
+                            <p>Condition: {{$product->conditionn}}</p>
+                            <p>Price: {{$product->price}}</p>
+                            <p>Pic: <img src="data:image/jpeg;base64,<?php base64_encode($product->pic) ?>"/></p>
+                            <p>Relevance score: {{$product->rank}}</p>
+                            <br><br>
+                        </div>
+                        <?php
+                        }
+                    } ?>
 
                 </div>
-
+            </div>
         </div>
     </div>
 

@@ -11,6 +11,7 @@ use Request;
 use App\Product;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 
 class ProductController extends BaseController
 {
@@ -36,7 +37,7 @@ class ProductController extends BaseController
 //        $request->file('image')->move(
 //            base_path() . '/public/images/catalog/', $imageName
 //        );
-        return 'Data saved';
+        return redirect()->to('/')->with('message', Lang::get('Data Saved'));
 
     }
 
@@ -68,7 +69,7 @@ class ProductController extends BaseController
                 + (CASE WHEN "' . $material . '" = material THEN 1 ELSE 0 END)
                 + (CASE WHEN "' . $suitability . '" = suitability THEN 1 ELSE 0 END)
                 + (CASE WHEN "' . $colour . '" = colour THEN 1 ELSE 0 END)
-                + (CASE WHEN '. $price .' = price THEN 1 ELSE 0 END)
+                + (CASE WHEN "'. $price .'" = price THEN 1 ELSE 0 END)
                 + (CASE WHEN "' . $condition . '" = conditionn THEN 1 ELSE 0 END)
                 AS rank
             '))
