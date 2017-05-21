@@ -8,6 +8,15 @@
   html {
   }
 
+
+
+  .table-container {
+      width: 80%;
+      margin:10em auto;
+      background: rgba(255,255,255,0.8);
+      padding: 3em;
+  }
+
 /* Search function positioning and style */
   /*.box{*/
         /*margin: 250px auto;*/
