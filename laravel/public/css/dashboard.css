@@ -4,6 +4,7 @@ div.tab {
     border: 1px solid #ccc;
     background-color: #f1f1f1;
     height: 50em;
+    width: 25%;
 }
 
 /* Style the buttons inside the tab */
@@ -61,11 +62,11 @@ form {
     width:30%;
 }
 .form-group input[type="text"] {
-    width: 60%;
+    width: 100%;
 }
 
 .form-group input[type="number"] {
-    width: 30%;
+    width: 20%;
 }
 
 

@@ -5,9 +5,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'buy-item')">Profile</button>
+                {{--<button class="tablinks" onclick="openTab(event, '')">Profile</button>--}}
+                <button class="tablinks" onclick="openTab(event, 'buy-item')">Buy Item</button>
                 <button class="tablinks" onclick="openTab(event, 'sell-item')">Sell an item</button>
-                <button class="tablinks" onclick="openTab(event, 'recent-search')">Recent Search Result</button>
+
             </div>
 
             <div id="sell-item" class="col-md-8 tabcontent">
@@ -100,9 +101,9 @@
 
             <div id="buy-item" class="tabcontent">
 
-                <img style="display:block; margin: 2em auto" src="{{URL::asset('/img/profile.jpg')}}">
-                <h3>{{Auth::user()->name}}</h3>
-                <p style="text-align: center; margin-bottom: 5em;">{{Auth::user()->email}}</p>
+                {{--<img style="display:block; margin: 2em auto" src="{{URL::asset('/img/profile.jpg')}}">--}}
+                {{--<h3>{{Auth::user()->name}}</h3>--}}
+                {{--<p style="text-align: center; margin-bottom: 5em;">{{Auth::user()->email}}</p>--}}
 
 
 

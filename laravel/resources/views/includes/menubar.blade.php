@@ -14,6 +14,7 @@
 
             <?php
             if(Auth::check()){?>
+            <li><a href="#">Profile</a></li>
             <li><a href="{{url('dashboard')}}">Dashboard</a></li>
 
             <?php    }
