@@ -22,7 +22,6 @@ Route::get('/', function () {
 });
 
 
-
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -36,12 +35,12 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('dashboard', 'Controller@getDashboard')->middleware('auth');
 
 
+Route::get('/submit-form', ['as' => 'submit-form', 'uses' => 'ProductController@addItem']);
 
-Route::get('/submit-form',['as' => 'submit-form', 'uses' => 'ProductController@addItem']);
 
+Route::get('/find-item', ['as' => 'find-item', 'uses' => 'ProductController@findItem']);
 
-Route::get('/find-item',['as' => 'find-item', 'uses' => 'ProductController@findItem']);
-
+Route::get('/submit-profile', ['as' => 'submit-profile', 'uses' => 'ProductController@submitProfile']);
 
 
 Route::controllers([
@@ -51,4 +50,6 @@ Route::controllers([
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/profile', 'Controller@getProfile');
 

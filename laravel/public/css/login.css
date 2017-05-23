@@ -33,3 +33,22 @@
 .panel-custom-register {
     margin-bottom: 0em;
 }
+
+
+.profile-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10em auto;
+}
+.profile-container .profile-detail {
+    padding: 3em;
+    position: relative;
+    width: 30em;
+    background: rgba(255,255,255,0.8);
+}
+
+.profile-container h3 {
+    text-align: center;
+}

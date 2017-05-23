@@ -7,11 +7,13 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
-use Request;
 use App\Product;
+use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Http\Request;
 
 class ProductController extends BaseController
 {
@@ -132,6 +134,16 @@ HERE;
 
         }
 
+    }
+
+
+    public function submitProfile(Request $request) {
+
+//        $product = User::firstOrCreate(['category'=>$request->input('category')]);
+
+//        Product::findItem();
+
+        return redirect()->to('/');
     }
 
 

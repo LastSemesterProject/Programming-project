@@ -16,5 +16,9 @@ class Controller extends BaseController
         return view('dashboard');
     }
 
+    public function getProfile() {
+        return View('profile');
+    }
+
 
 }

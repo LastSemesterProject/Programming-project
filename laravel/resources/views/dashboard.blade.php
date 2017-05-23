@@ -101,10 +101,6 @@
 
             <div id="buy-item" class="tabcontent">
 
-                {{--<img style="display:block; margin: 2em auto" src="{{URL::asset('/img/profile.jpg')}}">--}}
-                {{--<h3>{{Auth::user()->name}}</h3>--}}
-                {{--<p style="text-align: center; margin-bottom: 5em;">{{Auth::user()->email}}</p>--}}
-
 
 
 
