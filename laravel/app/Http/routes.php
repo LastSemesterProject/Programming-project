@@ -53,3 +53,12 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/profile', 'Controller@getProfile');
 
+Route::get('/user-list', 'Controller@getUserList');
+
+Route::get('admin/profile', ['middleware' => 'admin', function () {
+    //
+}]);
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('admin', 'Controller@getAdminProfile');
+});

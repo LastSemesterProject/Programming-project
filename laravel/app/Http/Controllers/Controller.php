@@ -20,5 +20,13 @@ class Controller extends BaseController
         return View('profile');
     }
 
+    public function getAdminProfile() {
+        return View('admin/profile');
+    }
+
+    public function getUserList() {
+        return view('admin/user-list');
+    }
+
 
 }

@@ -143,7 +143,41 @@ HERE;
 
 //        Product::findItem();
 
-        return redirect()->to('/');
+        $category = Input::get('category');
+        $material = Input::get('material');
+        $colour = Input::get('colour');
+        $suitability = Input::get('suitability');
+        $condition = Input::get('condition');
+        $price = Input::get('price');
+        $price2 = Input::get('price2');
+        $id = Input::get('user_id');
+
+        $products = DB::table('products')
+            ->select(DB::raw('
+
+                *,
+
+               (CASE WHEN "' . $category . '" = category THEN 2 ELSE 0 END)
+                + (CASE WHEN "' . $material . '" = material THEN 1 ELSE 0 END)
+                + (CASE WHEN "' . $suitability . '" = suitability THEN 1 ELSE 0 END)
+                + (CASE WHEN "' . $colour . '" = colour THEN 1 ELSE 0 END)
+                + (CASE WHEN "'. $price .'" = price THEN 1 ELSE 0 END)
+                + (CASE WHEN "' . $condition . '" = conditionn THEN 1 ELSE 0 END)
+                AS rank
+            '))
+//            ->where('category = '.$category.'')
+            ->orderBy('rank','desc')
+            ->get();
+
+
+
+        DB::table('users')
+            ->where('id', $id)
+            ->update([ 'category'=>$category, 'material'=>$material, 'suitability'=>$suitability,
+            'colour'=>$colour,'price' => $price, 'conditionn'=>$condition]);
+
+        return View('search-results', ['products' => $products]);
+
     }
 
 
