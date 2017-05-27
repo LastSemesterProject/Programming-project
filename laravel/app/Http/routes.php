@@ -62,3 +62,5 @@ Route::get('admin/profile', ['middleware' => 'admin', function () {
 Route::group(['middleware' => 'admin'], function () {
     Route::get('admin', 'Controller@getAdminProfile');
 });
+
+Route::post('/home/{products}','ProductController@saveResult');

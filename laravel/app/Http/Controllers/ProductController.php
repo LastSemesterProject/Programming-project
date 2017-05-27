@@ -176,7 +176,16 @@ HERE;
             ->update([ 'category'=>$category, 'material'=>$material, 'suitability'=>$suitability,
             'colour'=>$colour,'price' => $price, 'conditionn'=>$condition]);
 
-        return View('search-results', ['products' => $products]);
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['last_search' => json_encode($products)]);
+
+        return View('/home');
+
+//        return View('/home', ['products' => $products]);
+
+
+//         return redirect()->action('ProductController@saveResult',['products'=>$products]);
 
     }
 
