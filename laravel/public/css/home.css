@@ -186,7 +186,7 @@
 
 
   .footerDesign {
-
+        display: none;
         height: 4em;
         color: white;
         background-color: #333;
@@ -196,7 +196,7 @@
         padding: 0px 25px;
         clear: both;
         border-top: solid #47c4d1 5px;
-        display: block;
+        /*display: block;*/
 
 
     }
