@@ -1,0 +1,69 @@
+
+
+
+@media screen and (max-width: 800px) {
+
+    html {
+        height: 100vh;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .website-title li {
+        margin: .5em;
+    }
+
+    .floatRightside li {
+        margin: 0.5em;
+        font-size: .8em;
+    }
+
+    .body-container {
+        height: 100vh;
+    }
+
+    .body-text {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .footerDesign {
+        display: none;
+    }
+
+    .container-fluid {
+        justify-content: center;
+        height: 45em;
+        align-items: flex-start;
+    }
+
+    .panel-custom {
+        margin-left: 0em;
+    }
+
+    .table-container {
+        width: 90%;
+        padding: 0.5em;
+    }
+
+    div .tab {
+        width: 100%;
+        height: 3em;
+    }
+
+    div .tab button {
+        width: 50%;
+    }
+
+    #buy-item, #sell-item {
+        width: 100%;
+    }
+
+    .product-tile {
+        width: 90%;
+    }
+
+
+}
